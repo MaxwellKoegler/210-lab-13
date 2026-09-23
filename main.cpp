@@ -20,17 +20,28 @@ int main() {
         file >> roster[i].ID >> roster[i].score;
     }
 
-}
-
-void selectionSort(student arr[]){
     for(int i = 0; i < SIZE-1; i++) {
         int minI = i;
 
         for(int j = i + 1; j < SIZE; i++) {
-            if(arr[j].score < arr[minI].score){
+            if(roster[j].score < roster[minI].score){
                 minI = j;
             }
         }
-        swap(arr[i], arr[minI]);
+        swap(roster[i], roster[minI]);
     }
+    cout << "Sorted results: " << endl;
+    cout << "-------------------" << endl;
+    for(int i = 0; i < SIZE; i++){
+        int max = roster[i].score;
+        if(roster[i].score > max){
+            max = roster[i].score;
+        }
+        cout << "Student ID: " << roster[i].ID << "; Score: " << roster[i].score << endl;
+        cout << "Max score: " << max << endl;
+        
+    }
+
+
+
 }
