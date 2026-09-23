@@ -32,16 +32,33 @@ int main() {
     }
     cout << "Sorted results: " << endl;
     cout << "-------------------" << endl;
+    int max;
+    int min;
+    int total;
     for(int i = 0; i < SIZE; i++){
-        int max = roster[i].score;
+        max = roster[i].score;
+        min = roster[i].score;
         if(roster[i].score > max){
             max = roster[i].score;
         }
+        if(roster[i].score < min) {
+            min = roster[i].score;
+        }
+        total += roster[i].score;
         cout << "Student ID: " << roster[i].ID << "; Score: " << roster[i].score << endl;
-        cout << "Max score: " << max << endl;
+
+    }
+    cout << "Min score: " << min << endl;
+    cout << "Max score: " << max << endl;
+    cout << "Mean score: " << (total / SIZE) << endl;
+    cout << "Median score: " << roster[75].score << endl;
+    
+    double sqr = 0;
+    for(int i = 0; i < SIZE; i++) {
         
     }
 
 
 
 }
+ 
