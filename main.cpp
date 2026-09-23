@@ -20,5 +20,17 @@ int main() {
         file >> roster[i].ID >> roster[i].score;
     }
 
-    
+}
+
+void selectionSort(student arr[]){
+    for(int i = 0; i < SIZE-1; i++) {
+        int minI = i;
+
+        for(int j = i + 1; j < SIZE; i++) {
+            if(arr[j].score < arr[minI].score){
+                minI = j;
+            }
+        }
+        swap(arr[i], arr[minI]);
+    }
 }
