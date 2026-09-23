@@ -16,6 +16,10 @@ const int SIZE = 150;
 int main() {
     student roster[SIZE];
     ifstream file("210-lab-13-grades.txt");
+
+    if(!file){
+        cout << "Error opening input file";
+    }
     for(int i = 0; i < SIZE; i++){
         file >> roster[i].ID >> roster[i].score;
     }
@@ -35,6 +39,13 @@ int main() {
     int max;
     int min;
     int total;
+
+    ofstream foul("210-lab-13-grades-sorted.txt");
+
+    if(!foul){
+        cout << "Error opening output file";
+    }
+
     for(int i = 0; i < SIZE; i++){
         max = roster[i].score;
         min = roster[i].score;
@@ -46,6 +57,9 @@ int main() {
         }
         total += roster[i].score;
         cout << "Student ID: " << roster[i].ID << "; Score: " << roster[i].score << endl;
+        foul << roster[i].ID << roster[i].score;
+
+
 
     }
     cout << "Min score: " << min << endl;
@@ -55,8 +69,11 @@ int main() {
     
     double sqr = 0;
     for(int i = 0; i < SIZE; i++) {
-        
+        sqr += (roster[i].score - (total / SIZE)) * (roster[i].score - (total / SIZE));
     }
+
+    cout << "Standard dev: " << sqrt(sqr/SIZE) << endl;
+
 
 
 
